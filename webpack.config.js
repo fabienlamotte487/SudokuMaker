@@ -59,7 +59,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'), // dossier à servir
+      directory: path.resolve(__dirname, 'docs'), // dossier à servir
     },
     open: true,         // ouvre le navigateur automatiquement
     hot: true,          // active le hot reload
