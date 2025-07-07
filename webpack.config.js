@@ -10,7 +10,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'docs'),
     clean: true, // supprime les fichiers anciens à chaque build
-    publicPath: '/', // permet de servir le contenu depuis la racine
+    publicPath: './', // permet de servir le contenu depuis la racine
   },
   mode: 'production',
   module: {
@@ -41,14 +41,6 @@ module.exports = {
       filename: 'index.html',
       inject: 'body', // insère le JS en bas du <body>
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, 'src/assets/img'),
-    //       to: 'images', // => copie tout dans dist/images
-    //     }
-    //   ],
-    // }),
   ],
   optimization: {
     minimize: true,
