@@ -14,6 +14,7 @@ export class Sudoku{
         this.errorsCount = 0;
         this.maxTry = 3;
         this.defeatedModal = document.querySelector(".modal.defeated-message");
+        this.successModal = document.querySelector(".modal.success-message");
         this.tileRemaining = 9999;
 
         this.init();
@@ -101,6 +102,7 @@ export class Sudoku{
             selectedCell.classList.remove("filled");
         }
         this.checkValue(row, cell, value, selectedCell);
+        this.setTileRemaining();
     }
 
     checkValue(row, cell, value, selectedCell){
@@ -157,7 +159,17 @@ export class Sudoku{
     }
 
     setTileRemaining(){
+        let count = 0;
 
+        this.grid.forEach(array => {
+            count += array.filter(elem => elem == 0).length;
+        })
+
+        this.tileRemaining = count;
+
+        if(this.tileRemaining === 0 && this.errorsCount < this.maxTry){
+            this.showSuccessMessage();
+        } 
     }
 
     async fetchSudoku(){
@@ -185,5 +197,9 @@ export class Sudoku{
 
     defeatedState(){
         this.defeatedModal.classList.add("show");
+    }
+
+    showSuccessMessage(){
+        this.successModal.classList.add("show");
     }
 }

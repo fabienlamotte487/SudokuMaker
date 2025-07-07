@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.modal.defeated-message{
+.modal{
     display: none;
     position: absolute;
     top: 0;
@@ -27,9 +27,15 @@
         z-index: 0;
     }
 
+    &.defeated-message .modal-body{
+        background: $orange-color;
+    }
+    &.success-message .modal-body{
+        background: $green-color;
+    }
+
     .modal-body{
         position: absolute;
-        background: $orange-color;
         padding: 2rem;
         border-radius: 30px;
         z-index: 1;
