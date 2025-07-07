@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/assets/js/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     clean: true, // supprime les fichiers anciens à chaque build
     publicPath: '/', // permet de servir le contenu depuis la racine
   },
