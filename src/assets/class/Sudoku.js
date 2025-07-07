@@ -16,6 +16,7 @@ export class Sudoku{
         this.defeatedModal = document.querySelector(".modal.defeated-message");
         this.successModal = document.querySelector(".modal.success-message");
         this.tileRemaining = 9999;
+        this.resetButtons = document.querySelectorAll(".modal button");
 
         this.init();
     }
@@ -24,6 +25,7 @@ export class Sudoku{
         this.prepareGrid();
         this.prepareNumberButtons();
         this.prepareKeyboardEvents();
+        this.prepareResetButtons();
     }
 
     prepareKeyboardEvents(){
@@ -201,5 +203,22 @@ export class Sudoku{
 
     showSuccessMessage(){
         this.successModal.classList.add("show");
+    }
+
+    prepareResetButtons(){
+        this.resetButtons.forEach(resetButton => {
+            resetButton.addEventListener("click", () => {
+                this.resetGrid();
+            })
+        })
+    }
+
+    resetGrid(){
+        this.tileRemaining = 9999;
+        this.errorsCount = 0;
+        this.successModal.classList.remove("show");
+        this.defeatedModal.classList.remove("show");
+        this.prepareGrid();
+        this.prepareNumberButtons();
     }
 }
