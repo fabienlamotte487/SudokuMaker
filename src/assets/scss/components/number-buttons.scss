@@ -1,0 +1,50 @@
+@use '../variables' as *;
+
+$buttons-background: $secondary-color;
+$buttons-background-hover: $white-color;
+$buttons-border-width: 3px;
+$buttons-border-color: $orange-color;
+$buttons-border-radius: $border-radius;
+$buttons-font-color: $primary-color;
+
+ul.numbers{
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+
+    button{
+        outline: none;
+        cursor: pointer;
+        transition: background .3s ease;
+        padding: 1rem;
+        background: $buttons-background;
+
+        &:hover{
+            background: $buttons-background-hover;
+        }
+        border-bottom: $buttons-border-width solid $buttons-border-color;
+        border-top: $buttons-border-width solid $buttons-border-color;
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        color: $buttons-font-color;
+        font-weight: $font-weight-bold;
+    }
+    
+    li:first-child button{
+        border-radius: $buttons-border-radius 0 0 $buttons-border-radius;
+        border-left: $buttons-border-width solid $buttons-border-color;
+    }
+    li:last-child button{
+        border-radius: 0 $buttons-border-radius $buttons-border-radius 0;
+        border-right: $buttons-border-width solid $buttons-border-color;
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    ul.numbers button{
+        padding: .5rem;
+    }
+}

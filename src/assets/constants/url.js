@@ -1,0 +1,1 @@
+export const sudokuApi = "https://sudoku-api.vercel.app/api/dosuku" ;

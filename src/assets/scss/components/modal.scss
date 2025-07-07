@@ -1,0 +1,50 @@
+@use '../variables' as *;
+
+.modal.defeated-message{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%; 
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    &.show{
+        display: flex;
+    }
+
+    .modal-background{
+        position: absolute;
+        background: rgba(black, .4);
+        height: 100%;
+        width: 100%; 
+        z-index: 0;
+    }
+
+    .modal-body{
+        position: absolute;
+        background: $orange-color;
+        padding: 2rem;
+        border-radius: 30px;
+        z-index: 1;
+
+        button{
+            background: $primary-color;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: opacity .3s ease;
+
+            &:hover{
+                opacity: .9;
+            }
+        }
+    }
+}

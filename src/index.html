@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Mon jeu de sudoku</h1>
+        <small>
+            J'aimerais en préambule créditer le site <a href="https://sudoku-api.vercel.app/">Dosuku</a> qui permet la génération d'une grille aléatoire sur ce projet. (Open Source)<br />
+            Le but de ce projet est l'intégration d'une grille de sudoku from scratch, intégrant la logique en javascript pour y jouer de manière classique, ou bien en essayant mon solveur de sudoku personnel.
+        </small>
+    </header>
+    <div class="load-panel loading">
+        <p>Chargement de la grille</p>
+    </div>
+    <main>
+        <div>
+            Difficulté de la grille: <span class="difficulty"></span>
+        </div>
+        <div>
+            Nombre d'éssais restant: <span class="try"></span>
+        </div>
+        <div class="grid"></div>
+        <ul class="numbers hidden">
+            <li class="numbers-items">
+                <button type="button" data-value="1">1</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="2">2</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="3">3</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="4">4</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="5">5</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="6">6</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="7">7</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="8">8</button>
+            </li>
+            <li class="numbers-items">
+                <button type="button" data-value="9">9</button>
+            </li>
+        </ul>
+        <div class="modal defeated-message" type="modal">
+            <div class="modal-background"></div>
+            <div class="modal-body">
+                <h2>Fin du jeu</h2>
+                <p>
+                    Vous avez atteint votre nombre d'éssais maximum
+                    <br/>Vous pouvez retenter une nouvelle fois en cliquant sur le bouton ci-dessous ! 
+                </p>
+                <button type="button">Rejouer !</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

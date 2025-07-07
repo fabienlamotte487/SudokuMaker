@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'components/typo';
+@use 'components/number-buttons';
+@use 'components/grid';
+@use 'components/modal';
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    background: $primary-color;
+
+    header{
+        text-align: center;
+    }
+
+    .load-panel{
+        &:not(.loading){
+            display:none;
+        }
+        &.loading{
+            position:absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        &.loading ~ main{
+            filter: blur(2px);
+            opacity: 0.3;
+            transition: filter 0s ease, opacity 0s ease;
+        }
+        p{
+            font-size: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: filter .3s ease, opacity .3s ease;
+        flex: 1;
+    }
+}
+
+.hidden{
+    opacity:0;
+    pointer-events: none;
+}

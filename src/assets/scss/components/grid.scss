@@ -1,0 +1,89 @@
+@use '../variables' as *;
+
+$grid-border-radius: 30px;
+$grid-inner-border-width: 2px;
+$grid-outer-border-width: 5px;
+$grid-cell-border-width: 1px;
+
+main .grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: 90vmin; /* largeur adaptée à la taille de l'écran */
+    max-width: 450px;
+    aspect-ratio: 1 / 1; /* pour garder la grille carrée */
+    margin: 3rem auto;
+    gap: 0;
+    border-radius: $grid-border-radius;
+    overflow: hidden;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(0.9vmin + 1rem);
+        border: $grid-cell-border-width solid $darken-secondary-color;
+        cursor: pointer;
+        user-select: none;
+        background-color: $secondary-color;
+        transition: background-color 0.2s;
+        overflow: hidden;
+        color: black;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+        &:nth-child(3n + 1) {
+            border-left: $grid-outer-border-width solid $orange-color;
+        }
+        /* Barre intérieure verticales */
+        @for $i from 1 through 100 {
+            @if ($i - 4) % 9 == 0 or ($i - 7) % 9 == 0 {
+                &:nth-child(#{$i}) {
+                    border-left: $grid-inner-border-width solid $orange-color;
+                }
+            }
+        }
+        /* Barre intérieure horizontale */
+        &:nth-child(n + 28):nth-child(-n + 36),
+        &:nth-child(n + 55):nth-child(-n + 63){
+            border-top: $grid-inner-border-width solid $orange-color;
+        }
+        &:nth-child(-n+9) {
+            border-top: $grid-outer-border-width solid $orange-color;
+        }
+        &:nth-child(9n) {
+            border-right: $grid-outer-border-width solid $orange-color;
+        }
+        &:nth-child(n+73) {
+            border-bottom: $grid-outer-border-width solid $orange-color;
+        }
+        &:first-child{
+            border-top-left-radius: $grid-border-radius;
+        }
+        &:nth-child(9) {
+            border-top-right-radius: $grid-border-radius;
+        }
+        &:last-child{
+            border-bottom-right-radius: $grid-border-radius;
+        }
+        &:nth-child(73) {
+            border-bottom-left-radius: $grid-border-radius;
+        }
+        &.selectionnable{
+            color: transparent;
+        }
+        &.selected{
+            background-color: $orange-color;
+        }
+        &.error{
+            color: red;
+        }
+        &.success{
+            color: green;
+        }
+    }
+    .fixed {
+        font-weight: bold;
+        background-color: #e0e0e0;
+        pointer-events: none;
+    }
+}
